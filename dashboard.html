@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة التحكم - مركز مهندس السيارات</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <img src="logo.png" alt="شعار المركز" style="width:120px; margin-bottom:20px;">
+    <h2>لوحة التحكم</h2>
+    <div class="stats">
+      <div class="card">عدد العمليات: <span id="operationCount">0</span></div>
+      <div class="card">إجمالي الدخل: <span id="totalCost">0</span> د.ل</div>
+      <div class="card">صافي الربح: <span id="profit">0</span> د.ل</div>
+    </div>
+    <div class="buttons">
+      <button onclick="showAddForm()">إضافة عملية جديدة</button>
+      <button onclick="showOperations()">عرض العمليات</button>
+    </div>
+
+    <div id="addForm" class="form-section" style="display:none;">
+      <h3>إضافة عملية</h3>
+      <input type="text" id="name" placeholder="اسم العميل">
+      <input type="text" id="carType" placeholder="نوع السيارة">
+      <input type="text" id="operationType" placeholder="نوع العملية">
+      <input type="text" id="phone" placeholder="رقم الهاتف">
+      <select id="status">
+        <option value="قيد التنفيذ">قيد التنفيذ</option>
+        <option value="مكتملة">مكتملة</option>
+      </select>
+      <input type="number" id="operationCost" placeholder="تكلفة العملية">
+      <input type="number" id="materialCost" placeholder="تكلفة المواد">
+      <input type="number" id="laborCost" placeholder="تكلفة اليد العاملة">
+      <button onclick="addOperation()">حفظ العملية</button>
+      <button onclick="goBack()">رجوع</button>
+    </div>
+
+    <div id="operationsList" class="form-section" style="display:none;">
+      <h3>كل العمليات</h3>
+      <input type="text" id="searchInput" oninput="searchOperations()" placeholder="ابحث عن اسم أو رقم...">
+      <div id="cardsContainer"></div>
+      <button onclick="goBack()">رجوع</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
